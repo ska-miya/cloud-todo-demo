@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2458e6">
+    <meta name="description" content="やることを追加して、ひとつずつ完了。ブラウザに保存できるシンプルなToDoアプリ。">
+    <title>やることリスト</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232458e6'/%3E%3Cpath d='m17 33 10 10 21-23' fill='none' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="page-header">
+        <div class="eyebrow"><span class="brand-mark" aria-hidden="true">✓</span> MY TODO</div>
+        <h1>やることリスト<span class="title-dot" aria-hidden="true">.</span></h1>
+        <p class="intro">ひとつずつ、片づけよう。</p>
+      </header>
+
+      <section class="todo-panel" aria-label="タスクの管理">
+        <form id="todo-form" novalidate>
+          <label for="todo-input">新しいタスク</label>
+          <div class="input-row">
+            <input id="todo-input" name="task" type="text" placeholder="やることを入力…" maxlength="200" autocomplete="off" aria-describedby="input-error">
+            <button class="add-button" type="submit"><span aria-hidden="true">＋</span> 追加</button>
+          </div>
+          <p id="input-error" class="error" role="alert" hidden></p>
+        </form>
+
+        <div class="list-header">
+          <h2>タスク</h2>
+          <p id="task-summary" class="summary" aria-live="polite">0 件</p>
+        </div>
+        <ul id="todo-list" aria-label="タスク一覧"></ul>
+        <div id="empty-state" class="empty-state">
+          <span class="empty-icon" aria-hidden="true">✓</span>
+          <p>まだタスクはありません</p>
+          <span>まずは、ひとつ追加してみましょう。</span>
+        </div>
+        <p id="storage-error" class="storage-error" role="alert" hidden></p>
+      </section>
+
+      <footer class="footer">
+        <svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16"><rect x="4" y="8" width="12" height="9" rx="2"/><path d="M7 8V5a3 3 0 0 1 6 0v3"/></svg>
+        このブラウザに自動保存されます
+      </footer>
+      <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+      <noscript><p class="error">このアプリを使うには、JavaScriptを有効にしてください。</p></noscript>
+    </main>
+  </body>
+</html>
